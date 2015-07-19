@@ -7,6 +7,6 @@
 'use strict';
 
 var React = require('react-native');
-var NativeRNBluetoothState = React.NativeModules.RNBluetoothState;
+var RNBluetoothState = React.NativeModules.RNBluetoothState;
 
 module.exports = RNBluetoothState;
