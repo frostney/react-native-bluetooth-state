@@ -13,12 +13,14 @@
 
 RCT_EXPORT_MODULE()
 
+@synthesize bridge = _bridge;
+
 #pragma mark Initialization
 
 - (instancetype)init
 {
     if (self = [super init]) {
-        centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:dispatch_get_main_queue()];
+        _centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:dispatch_get_main_queue()];
     }
     
     return self;

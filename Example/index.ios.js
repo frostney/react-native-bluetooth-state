@@ -16,11 +16,11 @@ var {
 require('react-native-bluetooth-state');
 
 var Example = React.createClass({
-  getInitalState: function() {
+  getInitialState: function() {
     return {
       bluetooth: 'unknown'
     };
-  }
+  },
   componentDidMount: function() {
     DeviceEventEmitter.addListener('centralManagerDidUpdateState', bluetoothState => this.setState({bluetooth: bluetoothState}));
   },
