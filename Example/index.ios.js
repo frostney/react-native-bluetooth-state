@@ -13,6 +13,8 @@ var {
   DeviceEventEmitter
 } = React;
 
+require('react-native-bluetooth-state');
+
 var Example = React.createClass({
   getInitalState: function() {
     return {
