@@ -20,10 +20,14 @@ RCT_EXPORT_MODULE()
 - (instancetype)init
 {
     if (self = [super init]) {
-        _centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:dispatch_get_main_queue()];
+        self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:dispatch_get_main_queue() options:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:0] forKey:CBCentralManagerOptionShowPowerAlertKey]];
     }
     
     return self;
+}
+
+RCT_EXPORT_METHOD(initialize) {
+    [self centralManagerDidUpdateState:self.centralManager];
 }
 
 - (NSString *) centralManagerStateToString: (int)state

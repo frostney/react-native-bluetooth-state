@@ -3,10 +3,15 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node_modules/react-native/packager/packager.sh"
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "postinstall": "rnpm link"
   },
   "dependencies": {
-    "react-native": "^0.7.1",
-    "react-native-bluetooth-state": "^1.0.0"
+    "react": "^0.14.8",
+    "react-native": "^0.25.1",
+    "react-native-bluetooth-state": "file:./.."
+  },
+  "devDependencies": {
+    "rnpm": "^1.7.0"
   }
 }

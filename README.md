@@ -1,26 +1,31 @@
 # react-native-bluetooth-state
 Answering the question of "Is my bluetooth on?" in React Native
 
+This module only works for iOS at the moment.
+
 ## Installation
 
-Install using npm with npm install --save react-native-bluetooth-state. React Native >=0.7.0 is needed.
+```
+$ npm install react-native-bluetooth-state
+```
 
-You then need to add the Objective C part to your XCode project. Drag `RNBluetoothState.xcodeproj` from the `node_modules/react-native-bluetooth-state` folder into your XCode project. Click on the your project in XCode, goto Build Phases then Link Binary With Libraries and add `libRNBluetoothState.a` and `CoreBluetooth.framework`.
+React Native >=0.7.0 is needed.
 
-NOTE: Make sure you don't have the RNBeacon project open separately in XCode otherwise it won't work.
+You then need to add the Objective-C part to your XCode project. Drag `RNBluetoothState.xcodeproj` from the `node_modules/react-native-bluetooth-state` folder into your XCode project. Click on the your project in XCode, goto Build Phases then Link Binary With Libraries and add `libRNBluetoothState.a` and `CoreBluetooth.framework`.
+
+(Alternatively you can use RNPM to link the library, but in any case you need to link against `CoreBluetooth.framework`.)
 
 ## Usage
 
 ```javascript
-var React = require('react-native');
-var {DeviceEventEmitter} = React;
+import BluetoothState from 'react-native-bluetooth-state';
 
-require('react-native-bluetooth-state');
-
-// Listen for bluetooth change
-var subscription = DeviceEventEmitter.addListener('centralManagerDidUpdateState', bluetoothState => {
+BluetoothState.subscribe(bluetoothState => {
   // bluetoothState can either be "on", "off", "unknown", "unauthorized", "resetting" or "unsupported‚"
 });
+
+// Initialize needs to be called otherwise we don't get the initial state
+BluetoothState.initialize();
 ```
 
 ## License

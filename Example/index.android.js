@@ -1,7 +1,6 @@
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
- * @flow
  */
 
 import React, { Component } from 'react';
@@ -9,38 +8,21 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View,
-  DeviceEventEmitter
+  View
 } from 'react-native';
-import BluetoothState from 'react-native-bluetooth-state';
-
-console.log(BluetoothState);
 
 class Example extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      bluetooth: 'unknown',
-    };
-  }
-
-  componentDidMount() {
-    BluetoothState.subscribe(bluetoothState => {
-      this.setState({ bluetooth: bluetoothState });
-    });
-
-    BluetoothState.initialize();
-  }
-
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          What's the state of my bluetooth?
+          Welcome to React Native!
         </Text>
         <Text style={styles.instructions}>
-          {this.state.bluetooth}
+          To get started, edit index.android.js
+        </Text>
+        <Text style={styles.instructions}>
+          Shake or press menu button for dev menu
         </Text>
       </View>
     );
